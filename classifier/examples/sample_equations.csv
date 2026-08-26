@@ -1,0 +1,10 @@
+equation,label
+"dy/dx = x*y",separable
+"dy/dx = y/(1+x^2)",separable
+"y' = sin(x) * y",separable
+"dy/dx = x^2 + 3*x + 1",polinomial
+"y' = y^3 + x^2",polinomial
+"d2y/dx2 + y = x^3",polinomial
+"y'' + y = sin(x)",unhomogenous
+"dy/dx + y = e^x",unhomogenous
+"y'' - 4*y = cos(x)",unhomogenous
