@@ -216,7 +216,11 @@ def main():
               "test_metrics": result, "previous_checkpoint_test_metrics": previous,
               "previous_checkpoint_sha256": previous_sha,
               "previous_checkpoint_matches_original_leaked_model": previous_sha == audit["original_checkpoint_sha256"],
-              "previous_checkpoint_note": "The original checkpoint was trained using test-source records. Its score is not an unbiased baseline.",
+              "previous_checkpoint_note": (
+                  "The original checkpoint was trained using test-source records. Its score is not an unbiased baseline."
+                  if previous_sha == audit["original_checkpoint_sha256"] else
+                  "The previous checkpoint was evaluated on the same revised external test; see its recorded hash for provenance."
+              ),
               "model_sha256": sha256(args.model_out), "training_data_sha256": sha256(args.data),
               "test_xlsx_sha256": sha256(external_xlsx), "test_csv_sha256": sha256(args.test),
               "overlap_train_validation_test": 0, "duration_seconds": time.monotonic() - started}

@@ -5,13 +5,13 @@ Every dataset used or obtained in the work can be found in the [data](data/) fol
 
 Datasets, that were used to train steering vectors are in [datasets](data/datasets/) subfolder and are diveded into 3 different equation types (inhomogeneous, polynomial and separable) as steering vectors were trained for different type of differential equation separately. In each of these you can find 3 datasets - train, train_short and test.
 
-In the same [datasets](data/datasets/) folder you can find [test dataset](data/test_all.xlsx) used to obtain main results of the work. 
+In the same [datasets](data/datasets/) folder you can find the [test dataset](data/datasets/test_all.xlsx) used to obtain main results of the work. It currently contains 244 equations: 119 inhomogeneous, 64 separable, and 61 polynomial.
 
 Main results of the work can be found in [results](data/results). They are divided by number of permitted output tokens - 500 or 2000.
 
 ## Code
 [Here](code/) you can find all code as jupyter notebooks that were used in the work. 
-- Main [nootebok](code/CognitiveRouting.ipynb) - it classifies the equation into 1 of 3 classes, then tries to give a solution by using AI model with our trained steerin vectors.
+- Main [nootebok](code/CognitiveRouting.ipynb) - it classifies the equation into 1 of 3 classes, then tries to give a solution by using AI model with our trained steering vectors.
 - Notebooks used to [tune](code/inhomogeneous_steering_tune.ipynb) and [infer](code/inhomogeneous_steering_tune.ipynb) steering vectors for inhomogeneous equations.
 - Notebooks used to [tune](code/polynomial_steering_tune.ipynb) and [infer](code/polynomial_steering_tune.ipynb) steering vectors for polynomial equations.
 - Notebooks used to [tune](code/separable_steering_tune.ipynb) and [infer](code/separable_steering_tune.ipynb) steering vectors for separable equations.

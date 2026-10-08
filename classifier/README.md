@@ -10,20 +10,29 @@ preprocessing and checkpoint structure match the routing notebook.
 
 ## Clean datasets
 
-- `data/combined_equations.xlsx` contains 647 unique training-source equations.
+- `data/combined_equations.xlsx` contains 657 unique training-source equations.
 - `data/combined_equations.csv` and `data/combined_equations_with_split.csv`
-  contain the same records and a fixed, stratified split: 582 train / 65 valid.
+  contain the same records and a fixed, stratified split: 591 train / 66 valid.
 - `data/dataset_summary.xlsx` summarizes these cleaned records.
-- `data/test_equations.csv` is a snapshot of the 246 equations in
+- `data/test_equations.csv` is a snapshot of the 244 equations in
   `../data/datasets/test_all.xlsx`, with class labels and original Excel row numbers.
 
 The external test is not included in the combined training workbook. Validation
 is drawn only from training-source data and is used to select the epoch. Vocabulary,
 sequence length, and class weights are calculated from the train split only.
 
-Both current and original test-source equations are excluded from training.
-Duplicates are removed before splitting. Source filenames now refer to the actual
-repository datasets. Details and removed records are in [reports](reports/README.md).
+Training data takes priority when the source datasets overlap. The 19 previously
+removed answer-conflict records and 3 overlapping train records have been restored
+to the separable source workbook. Those 3 overlap records represent 2 distinct
+equations, which have been removed from the current test datasets and experiment
+results. The source train workbook has 271 records; the separable test has 64.
+
+The classifier uses one record per normalized input equation. Restoring the source
+records adds 10 unique inputs. Existing split assignments are preserved; 9 added
+inputs enter train and 1 enters validation, selected with seed 42. Current and
+historical test equations remain excluded, except the 2 equations explicitly
+reassigned to training. Source filenames refer to the actual repository datasets.
+Details and removed test/result records are in [reports](reports/README.md).
 
 ## Install and retrain
 
@@ -46,11 +55,11 @@ the external test once. It updates `pytorch_equation_classifier.pt` and writes:
 - `reports/test_predictions.csv`: predictions and class probabilities for every test row;
 - `reports/training_history.csv`: training and validation history.
 
-Training refuses duplicate inputs, test-source rows, overlap with current or
-original test equations, and stale external-test snapshots. If the external XLSX
+Training refuses duplicate inputs, test-source rows, overlap with the current or
+reserved historical test equations, and stale external-test snapshots. If the external XLSX
 changes, refresh and audit the CSV snapshot before retraining.
 
-The cleaned run on 2026-10-08 scored 246/246 correct (accuracy 1.0, macro F1 1.0)
+The revised run on 2026-10-08 scored 244/244 correct (accuracy 1.0, macro F1 1.0)
 on the current external test. This measures classification of this dataset;
 it does not evaluate equation solutions or steering-vector performance.
 

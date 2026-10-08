@@ -19889,3 +19889,821 @@ Insert \(I\) into the expression for \(y\):
 y &= x^{3}
    -\Bigl[\arctan x\,\tan x-\int\frac{\tan x}{1+x^{2}}dx\Bigr]
    -\int\frac{\tan x}{1",,y^{\prime}=3x^{2}-(\tan^{2}{(x)}+1)\arctan{(x)}-\frac{\tan{(x)}}{x^{2}+1},y ^ { prime } = 3 x ^ { 2 } - ( tan ^ { 2 } { ( x ) } + 1 ) arctan { ( x ) } - frac { tan { ( x ) } } { x ^ { 2 } + 1 },52,1,train
+y^{\prime}=- \frac{2 \operatorname{acos}{\left(2 x \right)} \left. \frac{d}{d \xi_{1}} \operatorname{ctan}{\left(\xi_{1} \right)} \right|_{\substack{ \xi_{1}=2 x }}}{\operatorname{ctan}^{2}{\left(2 x \right)}} - \frac{2}{\sqrt{1 - 4 x^{2}} \operatorname{ctan}{\left(2 x \right)}},separable variables,,,separable,separable_train.xlsx,y=\arccos(2 \cdot x) \cdot \frac{1}{\ctg(2 \cdot x)}-\ctg(x) \cdot \arccos(2 \cdot x)+C,,"[REASONING]
+**Step 1 – Rewrite the given equation**
+
+\[
+y'=- \frac{2\,\operatorname{acos}(2x)\,
+\left.\dfrac{d}{d\xi_{1}}\operatorname{ctan}(\xi_{1})\right|_{\xi_{1}=2x}}
+{\operatorname{ctan}^{2}(2x)}
+-\frac{2}{\sqrt{1-4x^{2}}\;\operatorname{ctan}(2x)} .
+\]
+
+Here  
+
+* \(\operatorname{acos}\) denotes \(\arccos\),  
+* \(\operatorname{ctan}\) denotes \(\cot\), and  
+* \(\displaystyle\frac{d}{d\xi}\cot(\xi)=-\csc^{2}(\xi)\).
+
+Hence  
+
+\[
+\left.\frac{d}{d\xi_{1}}\operatorname{ctan}(\xi_{1})\right|_{\xi_{1}=2x}
+= -\csc^{2}(2x).
+\]
+
+**Step 2 – Substitute the derivative**
+
+\[
+\begin{aligned}
+y'&=-\frac{2\,\operatorname{acos}(2x)\,[-\csc^{2}(2x)]}{\cot^{2}(2x)}
+-\frac{2}{\sqrt{1-4x^{2}}\;\cot(2x)}\\[4pt]
+&= \frac{2\,\operatorname{acos}(2x)\,\csc^{2}(2x)}{\cot^{2}(2x)}
+-\frac{2}{\sqrt{1-4x^{2}}\;\cot(2x)} .
+\end{aligned}
+\]
+
+**Step 3 – Simplify the trigonometric ratio**
+
+Using \(\cot\theta=\dfrac{\cos\theta}{\sin\theta}\) and \(\csc\theta=\dfrac{1}{\sin\theta}\),
+
+\[
+\frac{\csc^{2}(2x)}{\cot^{2}(2x)}
+=\frac{1/\sin^{2}(2x)}{\cos^{2}(2x)/\sin^{2}(2x)}
+=\frac{1}{\cos^{2}(2x)}=\sec^{2}(2x).
+\]
+
+Also \(\displaystyle\frac{1}{\cot(2x)}=\tan(2x)\).
+
+Thus
+
+\[
+y' = 2\,\operatorname{acos}(2x)\,\sec^{2}(2x)
+      -\frac{2\,\tan(2x)}{\sqrt{1-4x^{2}}}.
+\]
+
+**Step 4 – Recognise a product derivative**
+
+Recall  
+
+\[
+\frac{d}{dx}\bigl[\operatorname{acos}(2x)\bigr]=-\frac{2}{\sqrt{1-4x^{2}}},\qquad
+\frac{d}{dx}\bigl[\tan(2x)\bigr]=2\sec^{2}(2x).
+\]
+
+Hence, by the product rule,
+
+\[
+\frac{d}{dx}\bigl[\operatorname{acos}(2x)\,\tan(2x)\bigr]
+= \bigl[-\frac{2}{\sqrt{1-4x^{2}}}\bigr]\tan(2x)
+  +
+
+[FINAL ANSWER]
+\boxed{NOT_FOUND}",y^{\prime}=-\frac{2\operatorname{acos}{(2x)}.\frac{d}{d\xi_{1}}\operatorname{ctan}{(\xi_{1})}|_{\substack{\xi_{1}=2x}}}{\operatorname{ctan}^{2}{(2x)}}-\frac{2}{\sqrt{1-4x^{2}}\operatorname{ctan}{(2x)}},y ^ { prime } = - frac { 2 operatorname { acos } { ( 2 x ) } frac { d } { d xi _ { 1 } } operatorname { ctan } { ( xi _ { 1 } ) } _ { substack { xi _ { 1 } = 2 x } } } { operatorname { ctan } ^ { 2 } { ( 2 x ) } } - frac { 2 } { sqrt { 1 - 4 x ^ { 2 } } operatorname { ctan } { ( 2 x ) } },104,1,train
+y^{\prime}=\frac{2 \cos{\left(2 x \right)}}{\operatorname{asin}{\left(2 x \right)}} - \frac{2 \sin{\left(2 x \right)}}{\sqrt{1 - 4 x^{2}} \operatorname{asin}^{2}{\left(2 x \right)}},separable variables,,,separable,separable_train.xlsx,y=\sin(2 \cdot x) \cdot \frac{1}{\arcsin(2 \cdot x)}-\tg(x) \cdot \ctg(x)+C,,"[REASONING]
+**Solution**
+
+\[
+y'=\frac{2\cos (2x)}{\arcsin (2x)}-\frac{2\sin (2x)}{\sqrt{1-4x^{2}}\;(\arcsin (2x))^{2}}
+\]
+
+The right–hand side suggests the derivative of a quotient that contains \(\sin(2x)\) in the numerator and \(\arcsin(2x)\) in the denominator.  
+Consider  
+
+\[
+F(x)=\frac{2\sin (2x)}{\arcsin (2x)} .
+\]
+
+---
+
+### 1. Differentiate \(F(x)\)
+
+Let  
+
+\[
+u(x)=2\sin (2x),\qquad v(x)=\arcsin (2x).
+\]
+
+Then  
+
+\[
+u'(x)=2\cdot 2\cos (2x)=4\cos (2x),\qquad 
+v'(x)=\frac{2}{\sqrt{1-(2x)^{2}}}= \frac{2}{\sqrt{1-4x^{2}}}.
+\]
+
+Using the quotient rule,
+
+\[
+\begin{aligned}
+F'(x)&=\frac{u'v-u v'}{v^{2}}\\[2mm]
+&=\frac{4\cos (2x)\,\arcsin (2x)-2\sin (2x)\,\dfrac{2}{\sqrt{1-4x^{2}}}}
+      {(\arcsin (2x))^{2}}\\[2mm]
+&= \frac{4\cos (2x)}{\arcsin (2x)}-
+    \frac{4\sin (2x)}{\sqrt{1-4x^{2}}\;(\arcsin (2x))^{2}} .
+\end{aligned}
+\]
+
+---
+
+### 2. Relate \(F'(x)\) to the given right‑hand side
+
+The given expression is exactly one‑half of \(F'(x)\):
+
+\[
+\frac{2\cos (2x)}{\arcsin (2x)}-
+\frac{2\sin (2x)}{\sqrt{1-4x^{2}}\;(\arcsin (2x))^{2}}
+=\frac12\,F'(x).
+\]
+
+Hence  
+
+\[
+y'=\frac12\,F'(x).
+\]
+
+---
+
+### 3. Integrate
+
+\[
+y=\int y'\,dx=\frac12\int F'(x)\,dx
+      =\frac12\,F(x)+C
+      =\frac12\left(\frac{2\sin (2x)}{\arcsin (2x)}\right)+C
+      =\frac{\sin (2x)}{\arcsin (2x)}+C .
+\]
+
+---
+
+\[
+\boxed{\,y=\dfrac{\sin (2x)}{\arcsin (2x)}+C\,}
+\]
+
+[FINAL ANSWER]
+\boxed{\,y=\dfrac{\sin (2x)}",y^{\prime}=\frac{2\cos{(2x)}}{\operatorname{asin}{(2x)}}-\frac{2\sin{(2x)}}{\sqrt{1-4x^{2}}\operatorname{asin}^{2}{(2x)}},y ^ { prime } = frac { 2 cos { ( 2 x ) } } { operatorname { asin } { ( 2 x ) } } - frac { 2 sin { ( 2 x ) } } { sqrt { 1 - 4 x ^ { 2 } } operatorname { asin } ^ { 2 } { ( 2 x ) } },68,1,valid
+y^{\prime}=- \frac{1}{\sqrt{1 - x^{2}} \log{\left(x \right)}} - \frac{\operatorname{acos}{\left(x \right)}}{x \log{\left(x \right)}^{2}},separable variables,,,separable,separable_train.xlsx,y=\arccos(x) \cdot \frac{1}{\ln(x)}+\sin(2 \cdot x) \cdot x+C,,"[REASONING]
+**Reasoning**
+
+The differential equation is  
+
+\[
+y'=- \frac{1}{\sqrt{1 - x^{2}}\,\log x}-\frac{\arccos x}{x\,(\log x)^{2}} .
+\]
+
+We look for a function whose derivative gives the right‑hand side.  
+Consider  
+
+\[
+f(x)=\frac{\arccos x}{\log x}.
+\]
+
+Compute its derivative using the product rule (or quotient rule).
+
+\[
+\begin{aligned}
+f'(x) &= \frac{d}{dx}\Bigl[\arccos x\cdot (\log x)^{-1}\Bigr]  \\
+&= (\arccos x)'\,(\log x)^{-1}
+   +\arccos x\,\frac{d}{dx}\bigl[(\log x)^{-1}\bigr].
+\end{aligned}
+\]
+
+1. Derivative of \(\arccos x\):
+
+\[
+(\arccos x)' = -\frac{1}{\sqrt{1-x^{2}}}.
+\]
+
+Thus the first term is  
+
+\[
+-\frac{1}{\sqrt{1-x^{2}}}\,\frac{1}{\log x}
+   = -\frac{1}{\sqrt{1-x^{2}}\,\log x}.
+\]
+
+2. Derivative of \((\log x)^{-1}\):
+
+\[
+\frac{d}{dx}\bigl[(\log x)^{-1}\bigr]
+   = -(\log x)^{-2}\,\frac{1}{x}
+   = -\frac{1}{x(\log x)^{2}}.
+\]
+
+Hence the second term is  
+
+\[
+\arccos x\left(-\frac{1}{x(\log x)^{2}}\right)
+   = -\frac{\arccos x}{x(\log x)^{2}}.
+\]
+
+Adding the two terms gives  
+
+\[
+f'(x)= -\frac{1}{\sqrt{1-x^{2}}\,\log x}
+        -\frac{\arccos x}{x(\log x)^{2}},
+\]
+
+which is exactly the right‑hand side of the differential equation. Therefore  
+
+\[
+y' = f'(x) \quad\Longrightarrow\quad y = f(x) + C.
+\]
+
+Thus the general solution is  
+
+\[
+y = \frac{\arccos x}{\log x} + C,
+\]
+
+where \(C\) is an arbitrary constant.
+
+---
+
+**Final Answer**
+
+\[
+\boxed{\,y = \frac{\arccos(x)}{\log x} + C\,}
+\]
+
+[FINAL ANSWER]
+\boxed{\,y = \frac{\arccos(x)}",y^{\prime}=-\frac{1}{\sqrt{1-x^{2}}\log{(x)}}-\frac{\operatorname{acos}{(x)}}{x\log{(x)}^{2}},y ^ { prime } = - frac { 1 } { sqrt { 1 - x ^ { 2 } } log { ( x ) } } - frac { operatorname { acos } { ( x ) } } { x log { ( x ) } ^ { 2 } },55,1,train
+y^{\prime}=\frac{2}{\left(4 x^{2} + 1\right) \operatorname{asin}{\left(x \right)}} - \frac{\operatorname{atan}{\left(2 x \right)}}{\sqrt{1 - x^{2}} \operatorname{asin}^{2}{\left(x \right)}},separable variables,,,separable,separable_train.xlsx,y=\arctg(2 \cdot x) \cdot \frac{1}{\arcsin(x)}+\ctg(2 \cdot x) \cdot \sin(2 \cdot x)+C,,"[REASONING]
+**Step‑by‑step solution**
+
+\[
+y'=\frac{2}{\bigl(4x^{2}+1\bigr)\,\arcsin x}
+      -\frac{\arctan (2x)}{\sqrt{1-x^{2}}\;\bigl(\arcsin x\bigr)^{2}}
+\]
+
+---
+
+### 1.  Look for a function whose derivative gives the right‑hand side  
+
+Consider the quotient  
+
+\[
+u(x)=\frac{\arctan (2x)}{\arcsin x}.
+\]
+
+Its derivative, using the quotient rule \(\displaystyle \frac{d}{dx}\frac{u}{v}= \frac{u'v-u v'}{v^{2}}\), is  
+
+\[
+\begin{aligned}
+u'(x) &=\frac{ \displaystyle\frac{d}{dx}\bigl[\arctan (2x)\bigr]\;\arcsin x
+        -\arctan (2x)\;\displaystyle\frac{d}{dx}\bigl[\arcsin x\bigr]}
+        {\bigl(\arcsin x\bigr)^{2}} .
+\end{aligned}
+\]
+
+Compute the two derivatives:
+
+* \(\displaystyle \frac{d}{dx}\bigl[\arctan (2x)\bigr]=\frac{2}{1+(2x)^{2}}
+        =\frac{2}{4x^{2}+1}\).
+
+* \(\displaystyle \frac{d}{dx}\bigl[\arcsin x\bigr]=\frac{1}{\sqrt{1-x^{2}}}\).
+
+Insert them:
+
+\[
+\begin{aligned}
+u'(x) &=
+\frac{ \displaystyle \frac{2}{4x^{2}+1}\,\arcsin x
+        -\arctan (2x)\,\frac{1}{\sqrt{1-x^{2}}}}
+        {\bigl(\arcsin x\bigr)^{2}} \\[4pt]
+&= \frac{2}{(4x^{2}+1)\,\arcsin x}
+   -\frac{\arctan (2x)}{\sqrt{1-x^{2}}\;(\arcsin x)^{2}} .
+\end{aligned}
+\]
+
+The obtained expression is exactly the right‑hand side of the given differential
+equation. Hence  
+
+\[
+y' = \frac{d}{dx}\!\left(\frac{\arctan (2x)}{\arcsin x}\right).
+\]
+
+---
+
+### 2.  Integrate  
+
+\[
+\int y'\,dx = \int \frac{d}{dx}\!\left(\frac{\arctan (2x)}{\arcsin x}\right)dx
+\quad\Longrightarrow\quad
+y = \frac{\arctan (2x)}{\arcsin x}+C,
+\]
+
+where \(C\) is an arbitrary constant of integration.
+
+---
+
+\[
+\boxed{\,y(x)=\frac{\displaystyle\arctan(2x)}{\displaystyle\arcsin(x)}+C\,}
+\]
+
+[FINAL ANSWER]
+\boxed{\,y(x)=\frac{\displaystyle\arctan(2x)}",y^{\prime}=\frac{2}{(4x^{2}+1)\operatorname{asin}{(x)}}-\frac{\operatorname{atan}{(2x)}}{\sqrt{1-x^{2}}\operatorname{asin}^{2}{(x)}},y ^ { prime } = frac { 2 } { ( 4 x ^ { 2 } + 1 ) operatorname { asin } { ( x ) } } - frac { operatorname { atan } { ( 2 x ) } } { sqrt { 1 - x ^ { 2 } } operatorname { asin } ^ { 2 } { ( x ) } },70,1,train
+y^{\prime}=- e^{- x} \operatorname{ctan}{\left(x \right)} \log{\left(e \right)} + e^{- x} \frac{d}{d x} \operatorname{ctan}{\left(x \right)},separable variables,,,separable,separable_train.xlsx,y=\ctg(x) \cdot \frac{1}{e^{x}}-\arcsin(2 \cdot x) \cdot \tg(2 \cdot x)+C,,"[REASONING]
+[REASONING]
+
+The given differential equation is  
+
+\[
+y'=- e^{- x}\,\operatorname{ctan}(x)\,\log(e)+e^{- x}\,\frac{d}{dx}\operatorname{ctan}(x).
+\]
+
+1. **Simplify constants and notation**  
+
+   \[
+   \log(e)=1,\qquad \operatorname{ctan}(x)=\cot x .
+   \]
+
+   Hence  
+
+   \[
+   y'=- e^{-x}\cot x+e^{-x}\frac{d}{dx}\cot x .
+   \]
+
+2. **Differentiate \(\cot x\)**  
+
+   \[
+   \frac{d}{dx}\cot x = -\csc^{2}x .
+   \]
+
+   Substituting,  
+
+   \[
+   y'=- e^{-x}\cot x+e^{-x}\bigl(-\csc^{2}x\bigr)
+      =-e^{-x}\bigl(\cot x+\csc^{2}x\bigr).
+   \]
+
+3. **Recognise a total derivative**  
+
+   Compute the derivative of the product \(e^{-x}\cot x\):
+
+   \[
+   \frac{d}{dx}\bigl(e^{-x}\cot x\bigr)
+   =(-e^{-x})\cot x+e^{-x}\frac{d}{dx}\cot x
+   =-e^{-x}\cot x+e^{-x}\bigl(-\csc^{2}x\bigr)
+   =-e^{-x}\bigl(\cot x+\csc^{2}x\bigr).
+   \]
+
+   This is exactly the right‑hand side of the differential equation, i.e.
+
+   \[
+   y'=\frac{d}{dx}\bigl(e^{-x}\cot x\bigr).
+   \]
+
+4. **Integrate**  
+
+   Since the derivative of \(e^{-x}\cot x\) equals \(y'\),
+
+   \[
+   y = e^{-x}\cot x + C,
+   \]
+
+   where \(C\) is an arbitrary constant of integration.
+
+[FINAL ANSWER]
+\[
+\boxed{\,y(x)=e^{-x}\cot x + C\,}
+\]
+
+[FINAL ANSWER]
+\boxed{\,y(x)=e^{-x}",y^{\prime}=-exp(-x)\operatorname{ctan}{(x)}\log{(e)}+exp(-x)(d)/(dx)\operatorname{ctan}{(x)},y ^ { prime } = - exp ( - x ) operatorname { ctan } { ( x ) } log { ( e ) } + exp ( - x ) ( d ) / ( dx ) operatorname { ctan } { ( x ) },49,1,train
+y^{\prime}=- \frac{\operatorname{acot}{\left(x \right)} \frac{d}{d x} \operatorname{ctan}{\left(x \right)}}{\operatorname{ctan}^{2}{\left(x \right)}} - \frac{1}{\left(x^{2} + 1\right) \operatorname{ctan}{\left(x \right)}},separable variables,,,separable,separable_train.xlsx,y=\arcctg(x) \cdot \frac{1}{\ctg(x)}+\arccos(2 \cdot x) \cdot \tg(x)+C,,"[REASONING]
+[REASONING]
+
+The differential equation is  
+
+\[
+y'=- \frac{\operatorname{acot}{\left(x \right)} \frac{d}{d x} \operatorname{ctan}{\left(x \right)}}{\operatorname{ctan}^{2}{\left(x \right)}}-\frac{1}{\left(x^{2}+1\right)\operatorname{ctan}{\left(x \right)}} .
+\]
+
+Here \(\operatorname{ctan}(x)=\cot x\) and \(\operatorname{acot}(x)=\arccot x\).
+
+---
+
+### 1.  Compute \(\dfrac{d}{dx}\cot x\)
+
+\[
+\frac{d}{dx}\cot x = -\csc^{2}x = -(1+\cot^{2}x).
+\]
+
+---
+
+### 2.  Substitute the derivative
+
+\[
+\begin{aligned}
+y' &=
+-\,\frac{\arccot x\;(-\csc^{2}x)}{\cot^{2}x}
+-\frac{1}{(x^{2}+1)\cot x}\\[4pt]
+&= \frac{\arccot x\,\csc^{2}x}{\cot^{2}x}
+-\frac{1}{(x^{2}+1)\cot x}.
+\end{aligned}
+\]
+
+Because \(\csc^{2}x = 1+\cot^{2}x\),
+
+\[
+\frac{\csc^{2}x}{\cot^{2}x}= \frac{1+\cot^{2}x}{\cot^{2}x}= \frac{1}{\cot^{2}x}+1
+= \tan^{2}x+1 = \sec^{2}x .
+\]
+
+Hence  
+
+\[
+y' = \arccot x\,\sec^{2}x-\frac{1}{(x^{2}+1)\cot x}.
+\]
+
+---
+
+### 3.  Recognise a total derivative  
+
+Recall  
+
+\[
+\frac{d}{dx}\tan x = \sec^{2}x ,\qquad 
+\frac{d}{dx}\arccot x = -\frac{1}{1+x^{2}} .
+\]
+
+Consider the product \(\arccot x\;\tan x\):
+
+\[
+\begin{aligned}
+\frac{d}{dx}\bigl(\arccot x\;\tan x\bigr)
+&= \arccot x\;\frac{d}{dx}\tan x
+      + \tan x\;\frac{d}{dx}\arccot x \\[4pt]
+&= \arccot x\;\sec^{2}x
+      -\frac{\tan x}{1+x^{2}} .
+\end{aligned}
+\]
+
+Since \(\tan x = \dfrac{1}{\cot x}\),
+
+\[
+-\frac{\tan x}{1+x^{2}} = -\frac{1}{(x^{2}+1)\cot x},
+\]
+
+which is exactly the second term of \(y'\). Therefore  
+
+\[
+y' = \frac{d}{dx}\bigl(\arccot x\;\tan x\bigr).
+\]
+
+---
+
+### 4.  Integrate
+
+\[
+y = \arccot x\;\tan x + C,
+\]
+
+where \(C\) is an arbitrary constant.
+
+---
+
+[FINAL ANSWER]
+\[
+\boxed{\,y = \arccot(x)\,\tan(x) + C\,}
+\]
+
+[FINAL ANSWER]
+\boxed{\,y = \arccot(x)\,\tan(x) + C\,}",y^{\prime}=-\frac{\operatorname{acot}{(x)}(d)/(dx)\operatorname{ctan}{(x)}}{\operatorname{ctan}^{2}{(x)}}-\frac{1}{(x^{2}+1)\operatorname{ctan}{(x)}},y ^ { prime } = - frac { operatorname { acot } { ( x ) } ( d ) / ( dx ) operatorname { ctan } { ( x ) } } { operatorname { ctan } ^ { 2 } { ( x ) } } - frac { 1 } { ( x ^ { 2 } + 1 ) operatorname { ctan } { ( x ) } },75,1,train
+y^{\prime}=- \frac{\operatorname{acos}{\left(2 x \right)}}{\sqrt{1 - x^{2}} \operatorname{asin}^{2}{\left(x \right)}} - \frac{2}{\sqrt{1 - 4 x^{2}} \operatorname{asin}{\left(x \right)}},separable variables,,,separable,separable_train.xlsx,y=\arccos(2 \cdot x) \cdot \frac{1}{\arcsin(x)}+x^{2} \cdot \ln(x)+C,,"[REASONING]
+**Solution**
+
+\[
+y'=- \frac{\arccos (2x)}{\sqrt{1-x^{2}}\;\bigl(\arcsin x\bigr)^{2}}
+      -\frac{2}{\sqrt{1-4x^{2}}\;\arcsin x},
+\qquad |x|<\tfrac12 .
+\]
+
+---
+
+### 1.  Look for a function whose derivative gives the right‑hand side  
+
+Consider the quotient  
+
+\[
+u(x)=\frac{\arccos (2x)}{\arcsin x}.
+\]
+
+If \(y'=u'\), then \(y=u+C\).  
+Compute \(u'\) with the quotient rule.
+
+---
+
+### 2.  Derivatives of the numerator and denominator  
+
+\[
+\begin{aligned}
+A(x)&=\arccos (2x), &
+A'(x)&=-\frac{2}{\sqrt{1-(2x)^{2}}}
+      =-\frac{2}{\sqrt{1-4x^{2}}},\\[4pt]
+B(x)&=\arcsin x, &
+B'(x)&=\frac{1}{\sqrt{1-x^{2}}}.
+\end{aligned}
+\]
+
+---
+
+### 3.  Apply the quotient rule  
+
+\[
+u'=\frac{A'B-AB'}{B^{2}}.
+\]
+
+Insert the expressions found above:
+
+\[
+\begin{aligned}
+u'&=\frac{\displaystyle
+\Bigl(-\frac{2}{\sqrt{1-4x^{2}}}\Bigr)\,\arcsin x
+      -\arccos (2x)\,\Bigl(\frac{1}{\sqrt{1-x^{2}}}\Bigr)}
+          {\bigl(\arcsin x\bigr)^{2}} \\[6pt]
+   &= -\frac{2}{\sqrt{1-4x^{2}}\;\arcsin x}
+      -\frac{\arccos (2x)}{\sqrt{1-x^{2}}\;(\arcsin x)^{2}} .
+\end{aligned}
+\]
+
+The right‑hand side is exactly the given expression for \(y'\).
+
+Hence  
+
+\[
+y' = u' \quad\Longrightarrow\quad y = u + C.
+\]
+
+---
+
+### 4.  General solution  
+
+\[
+\boxed{\,y(x)=\frac{\arccos (2x)}{\arcsin x}+C\,},
+\qquad |x|<\tfrac12 .
+\]
+
+The constant \(C\) is arbitrary, and the domain is the intersection of the domains of \(\arccos(2x)\) and \(\arcsin x\), i.e. \(|x|<\tfrac12\).
+
+[FINAL ANSWER]
+\boxed{\,y(x)=\frac{\arccos (2x)}",y^{\prime}=-\frac{\operatorname{acos}{(2x)}}{\sqrt{1-x^{2}}\operatorname{asin}^{2}{(x)}}-\frac{2}{\sqrt{1-4x^{2}}\operatorname{asin}{(x)}},y ^ { prime } = - frac { operatorname { acos } { ( 2 x ) } } { sqrt { 1 - x ^ { 2 } } operatorname { asin } ^ { 2 } { ( x ) } } - frac { 2 } { sqrt { 1 - 4 x ^ { 2 } } operatorname { asin } { ( x ) } },72,1,train
+y^{\prime}=\frac{2 \sin{\left(2 x \right)} \operatorname{asin}{\left(2 x \right)}}{\cos^{2}{\left(2 x \right)}} + \frac{2}{\sqrt{1 - 4 x^{2}} \cos{\left(2 x \right)}},separable variables,,,separable,separable_train.xlsx,y=\arcsin(2 \cdot x) \cdot \frac{1}{\cos(2 \cdot x)}+\ctg(2 \cdot x) \cdot x^{2}+C,,"[REASONING]
+[REASONING]
+
+The differential equation is  
+
+\[
+y'=\frac{2\sin(2x)\,\arcsin(2x)}{\cos^{2}(2x)}+\frac{2}{\sqrt{1-4x^{2}}\;\cos(2x)} .
+\]
+
+---
+
+### 1.  Recognize derivatives inside the terms  
+
+*Derivative of \(\sec(2x)\):*  
+
+\[
+\frac{d}{dx}\sec(2x)=2\sec(2x)\tan(2x)=\frac{2\sin(2x)}{\cos^{2}(2x)} .
+\]
+
+Hence  
+
+\[
+\frac{2\sin(2x)}{\cos^{2}(2x)} = \bigl(\sec(2x)\bigr)' .
+\]
+
+*Derivative of \(\arcsin(2x)\):*  
+
+\[
+\frac{d}{dx}\arcsin(2x)=\frac{2}{\sqrt{1-(2x)^{2}}}= \frac{2}{\sqrt{1-4x^{2}}}.
+\]
+
+Thus  
+
+\[
+\frac{2}{\sqrt{1-4x^{2}}}= \bigl(\arcsin(2x)\bigr)' .
+\]
+
+---
+
+### 2.  Rewrite the right‑hand side using these derivatives  
+
+\[
+\begin{aligned}
+y' &=\arcsin(2x)\,\frac{2\sin(2x)}{\cos^{2}(2x)}+\frac{2}{\sqrt{1-4x^{2}}}\,\frac{1}{\cos(2x)}\\[4pt]
+   &=\arcsin(2x)\,(\sec(2x))' + (\arcsin(2x))'\,\sec(2x).
+\end{aligned}
+\]
+
+---
+
+### 3.  Identify the product rule  
+
+The expression obtained is exactly the derivative of the product \(\arcsin(2x)\,\sec(2x)\):
+
+\[
+\frac{d}{dx}\bigl[\arcsin(2x)\,\sec(2x)\bigr]
+      =\arcsin(2x)\,(\sec(2x))' + (\arcsin(2x))'\,\sec(2x).
+\]
+
+Therefore  
+
+\[
+y' = \frac{d}{dx}\bigl[\arcsin(2x)\,\sec(2x)\bigr].
+\]
+
+---
+
+### 4.  Integrate  
+
+Integrating both sides with respect to \(x\),
+
+\[
+y = \arcsin(2x)\,\sec(2x) + C,
+\]
+
+where \(C\) is an arbitrary constant.
+
+---
+
+[FINAL ANSWER]  
+\[
+\boxed{\,y = \sec(2x)\,\arcsin(2x) + C\,}
+\]
+
+[FINAL ANSWER]
+\boxed{\,y = \sec(2x)\,\arcsin(2x) + C\,}",y^{\prime}=\frac{2\sin{(2x)}\operatorname{asin}{(2x)}}{\cos^{2}{(2x)}}+\frac{2}{\sqrt{1-4x^{2}}\cos{(2x)}},y ^ { prime } = frac { 2 sin { ( 2 x ) } operatorname { asin } { ( 2 x ) } } { cos ^ { 2 } { ( 2 x ) } } + frac { 2 } { sqrt { 1 - 4 x ^ { 2 } } cos { ( 2 x ) } },65,1,train
+y^{\prime}=\frac{e^{x} \left(- 2 \tan^{2}{\left(2 x \right)} - 2\right)}{\tan^{2}{\left(2 x \right)}} + \frac{e^{x} \log{\left(e \right)}}{\tan{\left(2 x \right)}},separable variables,,,separable,separable_train.xlsx,y=e^{x} \cdot \frac{1}{\tg(2 \cdot x)}+\arcsin(x) \cdot \ln(x)+C,,"[REASONING]
+**Step 1 – Simplify the right‑hand side**
+
+\[
+y'=\frac{e^{x}\bigl(-2\tan^{2}(2x)-2\bigr)}{\tan^{2}(2x)}+\frac{e^{x}\log(e)}{\tan(2x)}
+\]
+
+Since \(\log(e)=1\),
+
+\[
+y' = e^{x}\Bigl[\frac{-2(\tan^{2}(2x)+1)}{\tan^{2}(2x)}+\frac{1}{\tan(2x)}\Bigr].
+\]
+
+Use \(\tan^{2}\theta+1=\sec^{2}\theta\) and \(\displaystyle\frac{\sec^{2}\theta}{\tan^{2}\theta}= \csc^{2}\theta\):
+
+\[
+\frac{-2(\tan^{2}(2x)+1)}{\tan^{2}(2x)} = -2\csc^{2}(2x),\qquad
+\frac{1}{\tan(2x)} = \cot(2x).
+\]
+
+Hence  
+
+\[
+\boxed{y' = e^{x}\bigl[-2\csc^{2}(2x)+\cot(2x)\bigr]}.
+\]
+
+---
+
+**Step 2 – Look for a factor \(e^{x}\)**  
+
+Write \(y\) as \(y=e^{x}f(x)\). Then  
+
+\[
+y' = e^{x}f + e^{x}f' = e^{x}\bigl(f+f'\bigr).
+\]
+
+Comparing with the expression for \(y'\),
+
+\[
+f'+f = -2\csc^{2}(2x)+\cot(2x).\tag{1}
+\]
+
+---
+
+**Step 3 – Solve the linear ODE for \(f\)**  
+
+Observe that  
+
+\[
+\frac{d}{dx}\cot(2x) = -2\csc^{2}(2x).
+\]
+
+Thus  
+
+\[
+-2\csc^{2}(2x)+\cot(2x)=\frac{d}{dx}\cot(2x)+\cot(2x).
+\]
+
+Therefore a particular solution of (1) is  
+
+\[
+f_{p}(x)=\cot(2x),
+\]
+because \(f_{p}'+f_{p}= (\cot(2x))'+\cot(2x)= -2\csc^{2}(2x)+\cot(2x)\).
+
+The homogeneous equation \(f'+f=0\) gives  
+
+\[
+f_{h}(x)=C e^{-x},
+\]
+with constant \(C\).
+
+Hence  
+
+\[
+f(x)=\cot(2x)+C e^{-x}.
+\]
+
+---
+
+**Step 4 – Obtain \(y\)**  
+
+\[
+y = e^{x}f(x)=e^{x}\bigl[\cot(2x)+C e^{-x}\bigr]
+      = e^{x}\cot(2x)+C.
+\]
+
+---
+
+**Final solution**
+
+\[
+\boxed{\,y(x)=e^{x}\cot(2x)+C\,}
+\] 
+
+where \(C\) is an arbitrary constant.
+
+[FINAL ANSWER]
+\boxed{\,y(x)=e^{x}",y^{\prime}=\frac{exp(x)(-2\tan^{2}{(2x)}-2)}{\tan^{2}{(2x)}}+\frac{exp(x)\log{(e)}}{\tan{(2x)}},y ^ { prime } = frac { exp ( x ) ( - 2 tan ^ { 2 } { ( 2 x ) } - 2 ) } { tan ^ { 2 } { ( 2 x ) } } + frac { exp ( x ) log { ( e ) } } { tan { ( 2 x ) } },66,1,train
+y^{\prime}=\frac{2 \log{\left(x \right)} \sin{\left(2 x \right)}}{\cos^{2}{\left(2 x \right)}} + \frac{1}{x \cos{\left(2 x \right)}},separable variables,,,separable,separable_train.xlsx,y=\ln(x) \cdot \frac{1}{\cos(2 \cdot x)}-\tg(2 \cdot x) \cdot \ln(x)+C,,"[REASONING]
+**Step‑by‑step solution**
+
+\[
+y'=\frac{2\log x\,\sin (2x)}{\cos ^2(2x)}+\frac{1}{x\cos (2x)}
+\qquad (x>0,\; \cos 2x\neq 0)
+\]
+
+---
+
+### 1.  Look for a function whose derivative gives the right‑hand side  
+
+Consider  
+
+\[
+u(x)=\frac{\log x}{\cos (2x)}=\log x\;\sec (2x).
+\]
+
+Using the product rule  
+
+\[
+u'(x)=\bigl(\log x\bigr)'\,\sec (2x)+\log x\;\bigl(\sec (2x)\bigr)' .
+\]
+
+Compute each derivative:
+
+* \((\log x)'=\dfrac{1}{x}\).
+
+* \(\displaystyle \bigl(\sec (2x)\bigr)'=
+\sec (2x)\tan (2x)\cdot (2)=2\sec (2x)\tan (2x).\)
+
+Recall \(\sec (2x)=\dfrac{1}{\cos (2x)}\) and \(\tan (2x)=\dfrac{\sin (2x)}{\cos (2x)}\); therefore  
+
+\[
+2\sec (2x)\tan (2x)=2\frac{1}{\cos (2x)}\frac{\sin (2x)}{\cos (2x)}
+= \frac{2\sin (2x)}{\cos ^2(2x)} .
+\]
+
+Now substitute back:
+
+\[
+\begin{aligned}
+u'(x) &=
+\frac{1}{x}\,\frac{1}{\cos (2x)}
++\log x\;\frac{2\sin (2x)}{\cos ^2(2x)}  \\
+&= \frac{1}{x\cos (2x)}+\frac{2\log x\,\sin (2x)}{\cos ^2(2x)} .
+\end{aligned}
+\]
+
+The expression obtained for \(u'(x)\) is exactly the right‑hand side of the given differential equation.
+
+Hence  
+
+\[
+y' = u'(x)=\frac{d}{dx}\!\left(\frac{\log x}{\cos (2x)}\right).
+\]
+
+---
+
+### 2.  Integrate  
+
+\[
+y = \int y'\,dx = \int u'(x)\,dx = u(x)+C
+      = \frac{\log x}{\cos (2x)}+C .
+\]
+
+---
+
+\[
+\boxed{\,y(x)=\dfrac{\ln x}{\cos (2x)}+C\,}
+\]
+
+where \(C\) is an arbitrary constant, and the solution is valid for \(x>0\) with \(\cos(2x)\neq 0\).
+
+[FINAL ANSWER]
+\boxed{\,y(x)=\dfrac{\ln x}",y^{\prime}=\frac{2\log{(x)}\sin{(2x)}}{\cos^{2}{(2x)}}+\frac{1}{x\cos{(2x)}},y ^ { prime } = frac { 2 log { ( x ) } sin { ( 2 x ) } } { cos ^ { 2 } { ( 2 x ) } } + frac { 1 } { x cos { ( 2 x ) } },51,1,train
