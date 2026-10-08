@@ -1,79 +1,63 @@
 # Differential Equation Type Classifier
 
-ML-классификатор для определения типа дифференциального уравнения по текстовой записи.
+The classifier used by `code/CognitiveRouting.ipynb` is the PyTorch
+`MathTextCNN` checkpoint in `pytorch_equation_classifier.pt`. Its labels are
+`polynomial`, `separable`, and `unhomogenous`.
 
-Сейчас поддерживаемые классы:
+The CNN uses 96-dimensional token embeddings, three convolution kernels
+(3, 5, 7), 128 filters per kernel, max pooling, and dropout 0.25. The
+preprocessing and checkpoint structure match the routing notebook.
 
-- `unhomogenous`
-- `polinomial`
-- `separable`
+## Clean datasets
 
-## Формат датасета
+- `data/combined_equations.xlsx` contains 647 unique training-source equations.
+- `data/combined_equations.csv` and `data/combined_equations_with_split.csv`
+  contain the same records and a fixed, stratified split: 582 train / 65 valid.
+- `data/dataset_summary.xlsx` summarizes these cleaned records.
+- `data/test_equations.csv` is a snapshot of the 246 equations in
+  `../data/datasets/test_all.xlsx`, with class labels and original Excel row numbers.
 
-По умолчанию скрипт ожидает CSV-файл с колонками:
+The external test is not included in the combined training workbook. Validation
+is drawn only from training-source data and is used to select the epoch. Vocabulary,
+sequence length, and class weights are calculated from the train split only.
 
-```csv
-equation,label
-"dy/dx = x*y",separable
-"y'' + y = sin(x)",unhomogenous
-"dy/dx = x^2 + y^3",polinomial
-```
+Both current and original test-source equations are excluded from training.
+Duplicates are removed before splitting. Source filenames now refer to the actual
+repository datasets. Details and removed records are in [reports](reports/README.md).
 
-Если колонки называются иначе, укажи их через `--text-column` и `--label-column`.
+## Install and retrain
 
-## Установка
+Run from this directory:
 
 ```bash
 python -m venv .venv
 .venv\Scripts\activate
 pip install -r requirements.txt
 pip install -e .
+retrain-pytorch-classifier
 ```
 
-## Обучение
+Alternatively, open `differential_equation_pytorch_classifier.ipynb`.
+The command trains from scratch with seed 42 and the original CNN hyperparameters,
+selects the checkpoint by validation macro F1, and evaluates the saved model on
+the external test once. It updates `pytorch_equation_classifier.pt` and writes:
 
-```bash
-train-equation-classifier --data path\to\dataset.csv
-```
+- `reports/evaluation.json`: metrics, confusion matrix, configuration, and input hashes;
+- `reports/test_predictions.csv`: predictions and class probabilities for every test row;
+- `reports/training_history.csv`: training and validation history.
 
-Полный пример:
+Training refuses duplicate inputs, test-source rows, overlap with current or
+original test equations, and stale external-test snapshots. If the external XLSX
+changes, refresh and audit the CSV snapshot before retraining.
 
-```bash
-train-equation-classifier ^
-  --data data\equations.csv ^
-  --text-column equation ^
-  --label-column label ^
-  --model-out models\equation_classifier.joblib
-```
+The cleaned run on 2026-10-08 scored 246/246 correct (accuracy 1.0, macro F1 1.0)
+on the current external test. This measures classification of this dataset;
+it does not evaluate equation solutions or steering-vector performance.
 
-После обучения модель будет сохранена в `models/equation_classifier.joblib`.
+## Baseline implementation
 
-## Предсказание одного уравнения
+The existing `train-equation-classifier` and `predict-equation-type` commands
+implement a separate scikit-learn TF-IDF / logistic-regression baseline. They are
+not the classifier loaded by the routing notebook.
 
-```bash
-predict-equation-type ^
-  --model models\equation_classifier.joblib ^
-  --equation "dy/dx = x*y"
-```
-
-## Предсказание для CSV-файла
-
-```bash
-predict-equation-type ^
-  --model models\equation_classifier.joblib ^
-  --input data\new_equations.csv ^
-  --text-column equation ^
-  --output predictions.csv
-```
-
-## Почему такая модель
-
-Для старта используется `TF-IDF` по символьным n-граммам и логистическая регрессия.
-Для математических выражений это хороший baseline: модель видит локальные шаблоны вроде `dy/dx`, `y'`, `sin(x)`, `x^2`, `*y`, скобки, степени и знаки операций.
-
-Если точности не хватит, следующим шагом можно добавить:
-
-- нормализацию LaTeX/SymPy;
-- ручные признаки по структуре уравнения;
-- transformer-модель для формул;
-- валидацию на отдельном holdout-наборе.
+The PyTorch retraining command above is the reproducible path for the paper's model.

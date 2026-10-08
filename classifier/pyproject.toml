@@ -19,6 +19,7 @@ dependencies = [
 [project.scripts]
 train-equation-classifier = "steering_classificator.train:main"
 predict-equation-type = "steering_classificator.predict:main"
+retrain-pytorch-classifier = "steering_classificator.train_pytorch:main"
 
 [tool.setuptools.packages.find]
 where = ["src"]
